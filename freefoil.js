@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   });
 });
 
+
 getCode = () => {
   let successURL = document.querySelector("#authURL").value;
   match = successURL.match("4/[0-9A-Za-z-_]+");
@@ -42,7 +43,7 @@ getCode = () => {
 
 oauthSignIn = () => {
   window.open(
-    `https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?client_id=${clientID}&redirect_uri=http://localhost:8080&response_type=code&scope=https://www.googleapis.com/auth/drive&include_granted_scopes=true&state=pass-through value&access_type=offline&service=lso&o2v=2&flowName=GeneralOAuthFlow`,
+    `https://accounts.google.com/o/oauth2/auth?scope=https://www.googleapis.com/auth/drive&redirect_uri=http://localhost:8080&response_type=code&client_id=${clientID}`,
     "popup",
     "popup=true,width=400,height=600"
   );

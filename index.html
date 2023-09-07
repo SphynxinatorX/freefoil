@@ -40,47 +40,46 @@
     </div>
     <h3>Generates a Google oauth token file for Tinfoil on the Switch</h3>
 
-    <div>
-      <h3>Step 1</h3>
-      <p>Load your credentials.json file</p>
+    <h3>Step 1</h3>
+    <div class="content">
+      <p>Load your credentials.json file:</p>
       <input type="file" id="file-selector" multiple />
 
       <div>
         <label for="clientID">Client ID</label>
-        <input type="text" id="clientID" placeholder="client ID" readonly />
+        <input type="text" id="clientID" placeholder="Client ID" readonly />
         <label for="clientID">Client Secret</label>
         <input
           type="text"
           id="clientSecret"
-          placeholder="client Secret"
+          placeholder="Client Secret"
           readonly
         />
       </div>
     </div>
 
-    <div>
-      <h3>Step 2</h3>
+    <h3>Step 2</h3>
+    <div class="content">
       <p>
         Make sure you are logged into the Google account that you want to auth with. <br>
-        Click the button below. This will open a Google Oauth popup window. Follow the steps and authorize the
-        app. <br>
+        Click the button below. This will open a Google Oauth popup window. <br>
+        Follow the steps and authorize the app. <br>
       </p>
       <button id="openAuth" disabled>Authorize</button>
       <p>
-
         Once it has completed (the popup page should fail saying it can't be reached or connection refused), copy the entire popup URL into the field below:
       </p>
       <input id="authURL" placeholder="http://localhost:8080/?state=pass..." />
       <p class="authURLValid"></p>
     </div>
 
-    <div>
-      <h3>Step 3</h3>
-      <button id="generateToken" disabled>Generate Token</button>
+    <h3>Step 3</h3>
+    <div class="content">
       <p>
         This will download a gdrive.token file. This file, along with
-        credentials.json should go to your SDCARD\switch\tinfoil folder
+        credentials.json should go to your SDCARD\switch\tinfoil folder.
       </p>
+      <button id="generateToken" disabled>Generate Token</button>
     </div>
 
     <br /><br />
@@ -104,5 +103,8 @@
   }
   .authURLValid {
     margin: 0;
+  }
+  .content {
+    padding-left: 1rem;
   }
 </style>
