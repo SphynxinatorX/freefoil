@@ -10,7 +10,7 @@ let generateTokenButton = undefined;
 document.addEventListener("DOMContentLoaded", (e) => {
   openOauthButton = document.querySelector("#openAuth");
   generateCodeButton = document.querySelector("#generateCode");
-  generateTokenButton = document.querySelector("#activate3");
+  generateTokenButton = document.querySelector("#generateToken");
   let authURLInput = document.querySelector("#generateToken");
 
   openOauthButton.addEventListener("click", (e) => {
