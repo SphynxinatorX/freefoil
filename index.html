@@ -62,26 +62,20 @@
       <h3>Step 2</h3>
       <p>
         Make sure you are logged into the Google account that you want to auth with. <br>
-        Click the button below. This will open a Google Oauth window. Follow the steps and authorize the
+        Click the button below. This will open a Google Oauth popup window. Follow the steps and authorize the
         app. <br>
       </p>
       <button id="openAuth" disabled>Authorize</button>
       <p>
 
-        Once it has completed (the page should fail saying it can't be reached or connection refused), copy the entire URL into the field below:
+        Once it has completed (the popup page should fail saying it can't be reached or connection refused), copy the entire popup URL into the field below:
       </p>
       <input id="authURL" placeholder="http://localhost:8080/?state=pass..." />
+      <p class="authURLValid"></p>
     </div>
 
     <div>
       <h3>Step 3</h3>
-      <button id="generateCode" disabled>Generate Code</button>
-      <br /><br />
-      <input id="authCode" readonly placeholder="authCode" />
-    </div>
-
-    <div>
-      <h3>Step 4</h3>
       <button id="generateToken" disabled>Generate Token</button>
       <p>
         This will download a gdrive.token file. This file, along with
@@ -107,5 +101,8 @@
   .title-container {
     display: flex;
     align-items: center;
+  }
+  .authURLValid {
+    margin: 0;
   }
 </style>
