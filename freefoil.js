@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   openOauthButton = document.querySelector("#openAuth");
   generateCodeButton = document.querySelector("#generateCode");
   generateTokenButton = document.querySelector("#generateToken");
-  let authURLInput = document.querySelector("#generateToken");
+  let authURLInput = document.querySelector("#authURL");
 
   openOauthButton.addEventListener("click", (e) => {
     oauthSignIn();

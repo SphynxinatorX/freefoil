@@ -38,19 +38,16 @@
         </svg>
       </div>
     </div>
-    <h3>Generates a gdrive token file for Tinfoil Oauth</h3>
+    <h3>Generates a Google oauth token file for Tinfoil on the Switch</h3>
 
     <div>
-      <h2>Step 1</h2>
-      <p>Load credentials.json file</p>
+      <h3>Step 1</h3>
+      <p>Load your credentials.json file</p>
       <input type="file" id="file-selector" multiple />
 
       <div>
-        <br />
         <label for="clientID">Client ID</label>
         <input type="text" id="clientID" placeholder="client ID" readonly />
-        <br />
-        <br />
         <label for="clientID">Client Secret</label>
         <input
           type="text"
@@ -62,25 +59,29 @@
     </div>
 
     <div>
-      <h2>Step 2</h2>
+      <h3>Step 2</h3>
+      <p>
+        Make sure you are logged into the Google account that you want to auth with. <br>
+        Click the button below. This will open a Google Oauth window. Follow the steps and authorize the
+        app. <br>
+      </p>
       <button id="openAuth" disabled>Authorize</button>
       <p>
-        This will open a Google Oauth window. Follow the steps and authorize the
-        app. Once it has completed (it will say something like page can't be
-        reached), copy the entire URL into the field below:
+
+        Once it has completed (the page should fail saying it can't be reached or connection refused), copy the entire URL into the field below:
       </p>
       <input id="authURL" placeholder="http://localhost:8080/?state=pass..." />
     </div>
 
     <div>
-      <h2>Step 3</h2>
+      <h3>Step 3</h3>
       <button id="generateCode" disabled>Generate Code</button>
       <br /><br />
       <input id="authCode" readonly placeholder="authCode" />
     </div>
 
     <div>
-      <h2>Step 4</h2>
+      <h3>Step 4</h3>
       <button id="generateToken" disabled>Generate Token</button>
       <p>
         This will download a gdrive.token file. This file, along with
