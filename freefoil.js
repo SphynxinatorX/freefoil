@@ -117,13 +117,12 @@ readFile = (e) => {
 
 download = (filename, data) => {
   text = JSON.stringify(data);
-  const blob = new Blob([text]);
+  const blob = new Blob([text], {type: 'application/octet-stream'});
 
-  var fileURL = URL.createObjectURL(blob);
-  var a = document.createElement('a');
-  a.href = fileURL;
-  a.target = '_blank';
-  a.download = filename;
-  document.body.appendChild(a);
-  a.click();
+  const elem = window.document.createElement('a');
+  elem.href = window.URL.createObjectURL(blob);
+  elem.download = filename;        
+  document.body.appendChild(elem);
+  elem.click();        
+  document.body.removeChild(elem);
 }
