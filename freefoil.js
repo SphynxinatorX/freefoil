@@ -18,6 +18,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
   authURLInput.addEventListener("keyup", (e) => {
     getCode();
   });
+  authURLInput.addEventListener("input", (e) => {
+    getCode();
+  });
 
   const fileSelector = document.getElementById("file-selector");
   fileSelector.addEventListener("change", (e) => {
@@ -36,6 +39,7 @@ getCode = () => {
     authURLlabel.innerText = "Valid";
     authURLlabel.style.color = "green";
   } else {
+    generateTokenButton.disabled = true;
     authURLlabel.innerText = "Invalid";
     authURLlabel.style.color = "red";
   }
@@ -111,18 +115,14 @@ readFile = (e) => {
   reader.readAsText(file);
 };
 
-download = (filename, text) => {
-  text = JSON.stringify(text);
+download = (filename, data) => {
+  text = JSON.stringify(data);
+  const blob = new Blob([text], {type: 'application/json'});
 
-  let element = document.createElement("a");
-  element.setAttribute(
-    "href",
-    "data:text/plain;charset=utf-8," + encodeURIComponent(text)
-  );
-  element.setAttribute("download", filename);
-  element.style.display = "none";
-  document.body.appendChild(element);
-
-  element.click();
-  document.body.removeChild(element);
-};
+  const elem = window.document.createElement('a');
+  elem.href = window.URL.createObjectURL(blob);
+  elem.download = filename;        
+  document.body.appendChild(elem);
+  elem.click();        
+  document.body.removeChild(elem);
+}
