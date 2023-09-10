@@ -117,7 +117,7 @@ readFile = (e) => {
 
 download = (filename, data) => {
   text = JSON.stringify(data);
-  const blob = new Blob([text], {type: 'application/json'});
+  const blob = new Blob([text]);
 
   const elem = window.document.createElement('a');
   elem.href = window.URL.createObjectURL(blob);
