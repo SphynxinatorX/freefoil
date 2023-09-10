@@ -47,7 +47,7 @@ getCode = () => {
 
 oauthSignIn = () => {
   window.open(
-    `https://accounts.google.com/o/oauth2/auth?scope=https://www.googleapis.com/auth/drive&redirect_uri=https://sphynxinatorx.github.io/freefoil&response_type=code&client_id=${clientID}`,
+    `https://accounts.google.com/o/oauth2/auth?scope=https://www.googleapis.com/auth/drive&redirect_uri=sphynxinatorx.github.io/freefoil&response_type=code&client_id=${clientID}`,
     "popup",
     "popup=true,width=400,height=600"
   );
@@ -62,7 +62,7 @@ getAuth = () => {
   urlencoded.append("client_secret", clientSecret);
   urlencoded.append("code", authCode);
   urlencoded.append("grant_type", "authorization_code");
-  urlencoded.append("redirect_uri", "https://sphynxinatorx.github.io/freefoil");
+  urlencoded.append("redirect_uri", "sphynxinatorx.github.io/freefoil");
 
   let requestOptions = {
     method: "POST",
