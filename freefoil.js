@@ -1,4 +1,4 @@
-let credentialsJson, clientID, clientSecret, authCode;
+let credentialsJson, clientID, clientSecret, authCode, appType;
 let openOauthButton,
   generateTokenButton,
   authURLInput,
@@ -32,19 +32,17 @@ document.addEventListener("DOMContentLoaded", (e) => {
     readFile(e);
   });
 
-  const bc = new BroadcastChannel("auth_listener");
-
+  const broadcast = new BroadcastChannel("auth_listener");
   let codeFound = /[?&]code=/.test(location.search);
 
   if (codeFound) {
     codeFound = new URLSearchParams(window.location.search).get("code");
-    bc.postMessage(codeFound);
+    broadcast.postMessage(codeFound);
     window.close();
   }
 
-  bc.onmessage = function (ev) {
-    console.log("Using code: ", ev.data);
-    authCode = ev.data;
+  broadcast.onmessage = function (event) {
+    authCode = event.data;
     getAuth();
   };
 });
@@ -124,24 +122,26 @@ readFile = (e) => {
   let reader = new FileReader();
   reader.onload = function (e) {
     let contents = e.target.result;
-
     credentialsJson = JSON.parse(contents);
 
     if (credentialsJson.installed) {
       clientID = credentialsJson.installed.client_id;
       clientSecret = credentialsJson.installed.client_secret;
       redirectURI = "http://localhost:8080";
+      appType = "Desktop";
     } else if (credentialsJson.web) {
       apptype = "web";
       redirectURI = window.location.href;
       clientID = credentialsJson.web.client_id;
       clientSecret = credentialsJson.web.client_secret;
+      appType = "Web";
     } else {
-      alert("invalid creds file");
+      alert("Invalid credentials file");
     }
 
     document.querySelector("#clientID").value = clientID;
     document.querySelector("#clientSecret").value = clientSecret;
+    document.querySelector("#appType").value = appType;
 
     openOauthButton.disabled = false;
   };
