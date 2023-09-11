@@ -68,7 +68,7 @@ getCode = () => {
 
 oauthSignIn = () => {
   window.open(
-    `https://accounts.google.com/o/oauth2/auth?scope=https://www.googleapis.com/auth/drive&redirect_uri=${redirectURI}&response_type=code&client_id=${clientID}&prompt=consent`,
+    `https://accounts.google.com/o/oauth2/auth?scope=https://www.googleapis.com/auth/drive&redirect_uri=${redirectURI}&response_type=code&client_id=${clientID}&prompt=consent&access_type=offline`,
     "popup",
     "popup=true,width=400,height=600"
   );
