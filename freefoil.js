@@ -1,5 +1,10 @@
 let credentialsJson, clientID, clientSecret, authCode;
-let openOauthButton, generateTokenButton, authURLInput, authURLlabel;
+let openOauthButton,
+  generateTokenButton,
+  authURLInput,
+  authURLlabel,
+  redirectURI;
+let apptype = "desktop";
 
 document.addEventListener("DOMContentLoaded", (e) => {
   openOauthButton = document.querySelector("#openAuth");
@@ -28,7 +33,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
   });
 });
 
-
 getCode = () => {
   let successURL = document.querySelector("#authURL").value;
   match = successURL.match("4/[0-9A-Za-z-_]+");
@@ -47,7 +51,7 @@ getCode = () => {
 
 oauthSignIn = () => {
   window.open(
-    `https://accounts.google.com/o/oauth2/auth?scope=https://www.googleapis.com/auth/drive&redirect_uri=https://sphynxinatorx.github.io/freefoil-dev/&response_type=code&client_id=${clientID}`,
+    `https://accounts.google.com/o/oauth2/auth?scope=https://www.googleapis.com/auth/drive&redirect_uri=${redirectURI}&response_type=code&client_id=${clientID}`,
     "popup",
     "popup=true,width=400,height=600"
   );
@@ -62,7 +66,7 @@ getAuth = () => {
   urlencoded.append("client_secret", clientSecret);
   urlencoded.append("code", authCode);
   urlencoded.append("grant_type", "authorization_code");
-  urlencoded.append("redirect_uri", "https://sphynxinatorx.github.io/freefoil-dev/");
+  urlencoded.append("redirect_uri", redirectURI);
 
   let requestOptions = {
     method: "POST",
@@ -104,8 +108,19 @@ readFile = (e) => {
     let contents = e.target.result;
 
     credentialsJson = JSON.parse(contents);
-    clientID = credentialsJson.installed.client_id;
-    clientSecret = credentialsJson.installed.client_secret;
+
+    if (credentialsJson.installed) {
+      clientID = credentialsJson.installed.client_id;
+      clientSecret = credentialsJson.installed.client_secret;
+      redirectURI = "http://localhost:8080";
+    } else if (credentialsJson.web) {
+      apptype = "web";
+      redirectURI = window.location.href;
+      clientID = credentialsJson.web.client_id;
+      clientSecret = credentialsJson.web.client_secret;
+    } else {
+      alert("invalid creds file");
+    }
 
     document.querySelector("#clientID").value = clientID;
     document.querySelector("#clientSecret").value = clientSecret;
@@ -117,12 +132,12 @@ readFile = (e) => {
 
 download = (filename, data) => {
   text = JSON.stringify(data);
-  const blob = new Blob([text], {type: 'application/octet-stream'});
+  const blob = new Blob([text], { type: "application/octet-stream" });
 
-  const elem = window.document.createElement('a');
+  const elem = window.document.createElement("a");
   elem.href = window.URL.createObjectURL(blob);
-  elem.download = filename;        
+  elem.download = filename;
   document.body.appendChild(elem);
-  elem.click();        
+  elem.click();
   document.body.removeChild(elem);
-}
+};
