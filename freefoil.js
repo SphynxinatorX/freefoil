@@ -5,7 +5,7 @@ let openOauthButton,
   authURLlabel,
   redirectURI;
 let apptype = "desktop";
-let codeFound = "";
+let codeFound;
 
 document.addEventListener("DOMContentLoaded", (e) => {
   openOauthButton = document.querySelector("#openAuth");
@@ -38,14 +38,14 @@ document.addEventListener("DOMContentLoaded", (e) => {
   let codeFound = /[?&]code=/.test(location.search);
 
   if (codeFound) {
-    let code = new URLSearchParams(window.location.search).get("code");
+    codeFound = new URLSearchParams(window.location.search).get("code");
     bc.postMessage(code);
     window.close;
-    getAuth(code);
   }
 
   bc.onmessage = function (ev) {
-    console.log("Got a message from the pop-up: ", ev.data);
+    console.log("Using code: ", ev.data);
+    getAuth();
   };
 });
 
@@ -80,7 +80,7 @@ getAuth = () => {
   let urlencoded = new URLSearchParams();
   urlencoded.append("client_id", clientID);
   urlencoded.append("client_secret", clientSecret);
-  urlencoded.append("code", authCode);
+  urlencoded.append("code", codeFound || authCode);
   urlencoded.append("grant_type", "authorization_code");
   urlencoded.append("redirect_uri", redirectURI);
 
