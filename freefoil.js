@@ -68,7 +68,7 @@ getCode = () => {
 
 oauthSignIn = () => {
   window.open(
-    `https://accounts.google.com/o/oauth2/auth?scope=https://www.googleapis.com/auth/drive&redirect_uri=${redirectURI}&response_type=code&client_id=${clientID}`,
+    `https://accounts.google.com/o/oauth2/auth?scope=https://www.googleapis.com/auth/drive&redirect_uri=${redirectURI}&response_type=code&client_id=${clientID}&prompt=consent`,
     "popup",
     "popup=true,width=400,height=600"
   );
@@ -84,8 +84,6 @@ getAuth = () => {
   urlencoded.append("code", authCode);
   urlencoded.append("grant_type", "authorization_code");
   urlencoded.append("redirect_uri", redirectURI);
-  urlencoded.append("prompt", "consent");
-  urlencoded.append("access_type", "offline");
 
   let requestOptions = {
     method: "POST",
