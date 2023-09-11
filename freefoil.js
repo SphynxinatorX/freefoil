@@ -31,6 +31,17 @@ document.addEventListener("DOMContentLoaded", (e) => {
   fileSelector.addEventListener("change", (e) => {
     readFile(e);
   });
+
+  const bc = new BroadcastChannel("my_spa_listener");
+
+  let codeFound = /[?&]code=/.test(location.search);
+  if (codeFound) {
+    bc.postMessage(window.location.search);
+  }
+
+  bc.onmessage = function (ev) {
+    console.log("Got a message from the pop-up: ", ev.data);
+  };
 });
 
 getCode = () => {
