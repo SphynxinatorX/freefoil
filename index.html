@@ -68,11 +68,13 @@
         Follow the steps and authorize the app. <br>
       </p>
       <button id="openAuth" disabled>Authorize</button>
-      <p>
-        Once it has completed (the popup page should fail saying it can't be reached or connection refused), copy the entire popup URL into the field below. This should be automatic if using the web app type.
-      </p>
-      <input id="authURL" placeholder="http://localhost:8080/?state=pass..." />
-      <p class="authURLValid"></p>
+      <div id="copyStep">
+        <p>
+          Once it has completed (the popup page should fail saying it can't be reached or connection refused), copy the entire popup URL into the field below. This should be automatic if using the web app type.
+        </p>
+        <input id="authURL" placeholder="http://localhost:8080/?state=pass..." />
+        <p class="authURLValid"></p>
+      </div>
     </div>
 
     <h3>Step 3</h3>
