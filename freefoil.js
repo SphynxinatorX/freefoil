@@ -84,6 +84,7 @@ getAuth = () => {
   urlencoded.append("code", authCode);
   urlencoded.append("grant_type", "authorization_code");
   urlencoded.append("redirect_uri", redirectURI);
+  urlencoded.append("approval_prompt", "force");
 
   let requestOptions = {
     method: "POST",
