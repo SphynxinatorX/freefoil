@@ -85,6 +85,7 @@ getAuth = () => {
   urlencoded.append("grant_type", "authorization_code");
   urlencoded.append("redirect_uri", redirectURI);
   urlencoded.append("approval_prompt", "force");
+  urlencoded.append("access_type", "offline");
 
   let requestOptions = {
     method: "POST",
