@@ -36,11 +36,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
   const bc = new BroadcastChannel("auth_listener");
 
   let codeFound = /[?&]code=/.test(location.search);
-  let code = location.search.get("code");
 
   if (codeFound) {
+    let code = new URLSearchParams(window.location.search).get("code");
     bc.postMessage(code);
     window.close;
+    getAuth(code);
   }
 
   bc.onmessage = function (ev) {
