@@ -55,7 +55,15 @@
           placeholder="Client Secret"
           readonly
         />
-        <label for="appType">App type</label>
+        <label for="appType"
+          >App type
+          <span
+            class="app-info"
+            data-text="App type defined when creating oauth credentials. It should be Desktop or Web, though Web is preferred. To make a web app, when creating OAuth client ID, choose Web Application instead of desktop app. Add https://sphynxinatorx.github.io/freefoil/ as an authorized redirect URI.  Create, download the JSON file and use here."
+            "
+            >ⓘ</span
+          ></label
+        >
         <input type="text" id="appType" placeholder="App type" readonly />
       </div>
     </div>
@@ -63,16 +71,23 @@
     <h3>Step 2</h3>
     <div class="content">
       <p>
-        Make sure you are logged into the Google account that you want to auth with. <br>
-        Click the button below. This will open a Google Oauth popup window. <br>
-        Follow the steps and authorize the app. <br>
+        Make sure you are logged into the Google account that you want to auth
+        with. <br />
+        Click the button below. This will open a Google Oauth popup window.
+        <br />
+        Follow the steps and authorize the app. <br />
       </p>
       <button id="openAuth" disabled>Authorize</button>
       <div id="copyStep">
         <p>
-          Once it has completed (the popup page should fail saying it can't be reached or connection refused), copy the entire popup URL into the field below. This should be automatic if using the web app type.
+          Once it has completed (the popup page should fail saying it can't be
+          reached or connection refused), copy the entire popup URL into the
+          field below. This should be automatic if using the web app type.
         </p>
-        <input id="authURL" placeholder="http://localhost:8080/?state=pass..." />
+        <input
+          id="authURL"
+          placeholder="http://localhost:8080/?state=pass..."
+        />
         <p class="authURLValid"></p>
       </div>
     </div>
@@ -82,13 +97,14 @@
       <div class="content">
         <p>
           This will download a gdrive.token file. This file, along with
-          credentials.json should go to your SDCARD\switch\tinfoil folder.<br> 
-          Mobile browsers might append .txt to the token file download, this will need to be removed.
+          credentials.json should go to your SDCARD\switch\tinfoil folder.<br />
+          Mobile browsers might append .txt to the token file download, this
+          will need to be removed.
         </p>
         <button id="generateToken" disabled>Generate Token</button>
       </div>
     </div>
-    
+
     <br /><br />
     <p>By Sphynxintor</p>
     <a href="https://github.com/SphynxinatorX/freefoil">Source code</a>
@@ -113,5 +129,27 @@
   }
   .content {
     padding-left: 1rem;
+  }
+  .app-info {
+    position: relative;
+    border-bottom: 1px dashed #000;
+  }
+  .app-info:before {
+    content: attr(data-text);
+    position: absolute;
+    top: 50%;
+    transform: translate(-30%, 5%);
+    left: 100%;
+    margin-left: 15px;
+    width: 350px;
+    padding: 10px;
+    border-radius: 10px;
+    background: #000;
+    color: #fff;
+    text-align: center;
+    display: none;
+  }
+  .app-info:hover:before {
+    display: block;
   }
 </style>
