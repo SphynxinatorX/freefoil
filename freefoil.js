@@ -94,7 +94,6 @@ getAuth = () => {
     .then((response) => response.text())
     .then((result) => {
       resultsJSON = JSON.parse(result);
-      console.log(resultsJSON);
 
       if (resultsJSON.error) {
         alert(
