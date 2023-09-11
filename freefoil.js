@@ -5,6 +5,7 @@ let openOauthButton,
   authURLlabel,
   redirectURI;
 let apptype = "desktop";
+let codeFound = "";
 
 document.addEventListener("DOMContentLoaded", (e) => {
   openOauthButton = document.querySelector("#openAuth");
@@ -32,11 +33,14 @@ document.addEventListener("DOMContentLoaded", (e) => {
     readFile(e);
   });
 
-  const bc = new BroadcastChannel("my_spa_listener");
+  const bc = new BroadcastChannel("auth_listener");
 
   let codeFound = /[?&]code=/.test(location.search);
+  let code = location.search.get("code");
+
   if (codeFound) {
-    bc.postMessage(window.location.search);
+    bc.postMessage(code);
+    window.close;
   }
 
   bc.onmessage = function (ev) {
