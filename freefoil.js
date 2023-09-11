@@ -3,7 +3,8 @@ let openOauthButton,
   generateTokenButton,
   authURLInput,
   authURLlabel,
-  authStep,
+  copyStep,
+  generateStep,
   redirectURI;
 let apptype = "desktop";
 
@@ -12,9 +13,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
   generateTokenButton = document.querySelector("#generateToken");
   authURLInput = document.querySelector("#authURL");
   authURLlabel = document.querySelector(".authURLValid");
-  authStep = document.querySelector("#copyStep");
+  copyStep = document.querySelector("#copyStep");
+  generateStep = document.querySelector("#generateStep");
 
-  console.log(authStep);
+  console.log(copyStep);
 
   openOauthButton.addEventListener("click", (e) => {
     oauthSignIn();
@@ -132,14 +134,16 @@ readFile = (e) => {
       clientSecret = credentialsJson.installed.client_secret;
       redirectURI = "http://localhost:8080";
       appType = "Desktop";
-      authStep.style.display = "block";
+      copyStep.style.display = "block";
+      generateStep.style.display = "block";
     } else if (credentialsJson.web) {
       apptype = "web";
       redirectURI = window.location.href;
       clientID = credentialsJson.web.client_id;
       clientSecret = credentialsJson.web.client_secret;
       appType = "Web";
-      authStep.style.display = "none";
+      copyStep.style.display = "none";
+      generateStep.style.display = "none";
     } else {
       alert("Invalid credentials file");
     }
