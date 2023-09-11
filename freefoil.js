@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   if (codeFound) {
     codeFound = new URLSearchParams(window.location.search).get("code");
     bc.postMessage(codeFound);
-    window.close;
+    window.close();
   }
 
   bc.onmessage = function (ev) {
