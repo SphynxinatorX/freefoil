@@ -16,8 +16,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
   copyStep = document.querySelector("#copyStep");
   generateStep = document.querySelector("#generateStep");
 
-  console.log(copyStep);
-
   openOauthButton.addEventListener("click", (e) => {
     oauthSignIn();
   });
