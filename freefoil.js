@@ -5,7 +5,6 @@ let openOauthButton,
   authURLlabel,
   redirectURI;
 let apptype = "desktop";
-let codeFound;
 
 document.addEventListener("DOMContentLoaded", (e) => {
   openOauthButton = document.querySelector("#openAuth");
@@ -45,6 +44,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
   bc.onmessage = function (ev) {
     console.log("Using code: ", ev.data);
+    authCode = ev.data;
     getAuth();
   };
 });
@@ -80,7 +80,7 @@ getAuth = () => {
   let urlencoded = new URLSearchParams();
   urlencoded.append("client_id", clientID);
   urlencoded.append("client_secret", clientSecret);
-  urlencoded.append("code", codeFound || authCode);
+  urlencoded.append("code", authCode);
   urlencoded.append("grant_type", "authorization_code");
   urlencoded.append("redirect_uri", redirectURI);
 
