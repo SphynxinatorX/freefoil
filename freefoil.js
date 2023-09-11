@@ -51,10 +51,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 getCode = () => {
   let successURL = document.querySelector("#authURL").value;
-  match = successURL.match("4/[0-9A-Za-z-_]+");
+  decoded = decodeURIComponent(successURL);
+  match = decoded.match("4/[0-9A-Za-z-_]+");
 
   if (match) {
-    authCode = successURL.match("4/[0-9A-Za-z-_]+")[0];
+    authCode = match[0];
     generateTokenButton.disabled = false;
     authURLlabel.innerText = "Valid";
     authURLlabel.style.color = "green";
