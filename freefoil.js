@@ -3,6 +3,7 @@ let openOauthButton,
   generateTokenButton,
   authURLInput,
   authURLlabel,
+  validContainer,
   copyStep,
   generateStep,
   redirectURI;
@@ -13,6 +14,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
   generateTokenButton = document.querySelector("#generateToken");
   authURLInput = document.querySelector("#authURL");
   authURLlabel = document.querySelector(".authURLValid");
+  validContainer = document.querySelector(".valid-container");
+
   copyStep = document.querySelector("#copyStep");
   generateStep = document.querySelector("#generateStep");
 
@@ -60,11 +63,13 @@ getCode = () => {
     authCode = match[0];
     generateTokenButton.disabled = false;
     authURLlabel.innerText = "Valid";
-    authURLlabel.style.color = "green";
+    authURLlabel.style.color = "#3EAF3F";
+    validContainer.style.display = "block";
   } else {
     generateTokenButton.disabled = true;
     authURLlabel.innerText = "Invalid";
     authURLlabel.style.color = "red";
+    validContainer.style.display = "none";
   }
 };
 

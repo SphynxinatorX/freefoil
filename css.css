@@ -1,0 +1,199 @@
+input {
+  display: flex;
+  width: calc(100% - 40px);
+  padding: 8px 20px;
+  align-items: flex-start;
+  gap: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #f5f3f2;
+  color: black;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px; /* 228.571% */
+  letter-spacing: 0.171px;
+}
+
+input[readonly] {
+  color: #c7c2c2;
+  opacity: 1;
+}
+
+input[readonly]::placeholder {
+  color: #c7c2c2;
+  opacity: 1;
+}
+
+.svg {
+  margin-top: 0.4rem;
+  width: 42px;
+  margin-right: 0.5rem;
+}
+.title-container {
+  display: flex;
+  align-items: center;
+}
+.authURLValid {
+  margin: 0;
+}
+.left-title {
+  color: #fff;
+  font-family: Roboto;
+  font-size: 41.12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.171px;
+  margin: 0;
+}
+.left-subtitle {
+  color: #fff;
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0.171px;
+}
+
+.app-info {
+  position: relative;
+}
+.app-info:before {
+  content: attr(data-text);
+  position: absolute;
+  top: 50%;
+  transform: translate(-30%, 5%);
+  left: -250px;
+  margin-left: 15px;
+  width: 350px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  display: none;
+}
+.app-info:hover:before {
+  display: block;
+}
+
+body {
+  display: flex;
+  margin: 0;
+  font-family: "roboto";
+  color: #000;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  letter-spacing: 0.171px;
+}
+.left-panel {
+  width: 39%;
+  padding: 40px 60px;
+  position: relative;
+}
+.right-panel {
+  width: 61%;
+  padding: 40px 60px;
+  background: white;
+}
+
+body {
+  max-width: 1440px;
+  margin: auto;
+  background: black;
+}
+
+.button,
+button {
+  display: flex;
+  width: max-content;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border-radius: 8px;
+  background: #5887ff;
+  color: white;
+  min-width: 200px;
+  border: none;
+}
+
+.button:hover,
+button:hover {
+  background: #2e61e4;
+}
+
+button[disabled] {
+  opacity: 0.5;
+}
+
+.left-panel {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%),
+    url("assets/overlay.jpg"), #1b1c46 50% / cover repeat;
+  background-blend-mode: normal, overlay;
+}
+
+.title {
+  color: #000;
+  font-family: "Bakbak One";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 70% */
+  letter-spacing: 0.171px;
+}
+h3 {
+  color: #ff6058;
+  font-family: "Bakbak One";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 87.5% */
+  letter-spacing: 0.171px;
+  margin-bottom: 12px;
+  margin-top: 5rem;
+}
+.subtitle {
+  color: #000;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px; /* 200% */
+  letter-spacing: 0.171px;
+}
+.text-1 {
+  color: #fff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px; /* 200% */
+  letter-spacing: 0.171px;
+}
+.text-2 {
+  color: #fff;
+  font-family: Bakbak One;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 177.778% */
+  letter-spacing: 0.171px;
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+}
+.text-3 {
+  color: #fff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0.171px;
+}

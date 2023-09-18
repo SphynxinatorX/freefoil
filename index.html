@@ -4,151 +4,261 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Freefoil</title>
-    <script src="freefoil.js"></script>
     <link
+      href="https://fonts.googleapis.com/css?family=Bakbak One"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <link
+    href="css.css"
+    rel="stylesheet"
+    />
+    <script src="freefoil.js"></script>
   </head>
   <body>
-    <div class="title-container">
-      <h1>Freefoil</h1>
-      <div class="svg">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          version="1.0"
-          viewBox="0 0 550.000000 550.000000"
-          preserveAspectRatio="xMidYMid meet"
-        >
-          <g
-            transform="translate(0.000000,550.000000) scale(0.100000,-0.100000)"
-            fill="#000000"
-            stroke="none"
+    <div class="left-panel">
+      <div class="title-container">
+        <div class="svg">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            version="1.0"
+            viewBox="0 0 550.000000 550.000000"
+            preserveAspectRatio="xMidYMid meet"
           >
-            <path
-              d="M1365 5154 c-481 -86 -868 -442 -990 -910 -44 -169 -47 -268 -42 -1579 3 -1204 4 -1232 24 -1325 111 -501 467 -858 973 -976 66 -15 150 -18 691 -21 560 -4 618 -3 633 12 15 15 16 208 16 2396 0 1622 -3 2386 -10 2400 -10 18 -27 19 -613 18 -476 -1 -619 -4 -682 -15z m905 -2400 l0 -2026 -407 5 c-375 4 -415 6 -490 25 -322 83 -561 331 -628 654 -22 101 -22 2589 -1 2688 60 281 255 514 518 619 132 53 193 59 621 60 l387 1 0 -2026z"
-            />
-            <path
-              d="M1451 4169 c-63 -12 -159 -60 -210 -105 -105 -91 -157 -220 -149 -372 4 -79 9 -100 41 -164 47 -97 118 -168 215 -216 67 -33 84 -37 171 -40 79 -3 107 0 160 18 217 73 348 284 311 500 -43 257 -287 429 -539 379z"
-            />
-            <path
-              d="M3157 5163 c-4 -3 -7 -1087 -7 -2409 0 -2181 1 -2402 16 -2408 27 -10 803 -6 899 4 406 46 764 293 959 660 25 47 58 126 75 175 63 188 61 138 61 1575 0 1147 -2 1318 -16 1391 -99 521 -496 914 -1018 1004 -70 12 -178 15 -526 15 -240 0 -440 -3 -443 -7z m1068 -2178 c156 -41 284 -160 336 -312 33 -94 32 -232 -1 -318 -61 -158 -181 -269 -335 -310 -250 -65 -516 86 -589 334 -22 76 -21 204 4 282 75 245 335 389 585 324z"
-            />
-          </g>
-        </svg>
+            <g
+              transform="translate(0.000000,550.000000) scale(0.100000,-0.100000)"
+              fill="#FFFFFF"
+              stroke="none"
+            >
+              <path
+                d="M1365 5154 c-481 -86 -868 -442 -990 -910 -44 -169 -47 -268 -42 -1579 3 -1204 4 -1232 24 -1325 111 -501 467 -858 973 -976 66 -15 150 -18 691 -21 560 -4 618 -3 633 12 15 15 16 208 16 2396 0 1622 -3 2386 -10 2400 -10 18 -27 19 -613 18 -476 -1 -619 -4 -682 -15z m905 -2400 l0 -2026 -407 5 c-375 4 -415 6 -490 25 -322 83 -561 331 -628 654 -22 101 -22 2589 -1 2688 60 281 255 514 518 619 132 53 193 59 621 60 l387 1 0 -2026z"
+              />
+              <path
+                d="M1451 4169 c-63 -12 -159 -60 -210 -105 -105 -91 -157 -220 -149 -372 4 -79 9 -100 41 -164 47 -97 118 -168 215 -216 67 -33 84 -37 171 -40 79 -3 107 0 160 18 217 73 348 284 311 500 -43 257 -287 429 -539 379z"
+              />
+              <path
+                d="M3157 5163 c-4 -3 -7 -1087 -7 -2409 0 -2181 1 -2402 16 -2408 27 -10 803 -6 899 4 406 46 764 293 959 660 25 47 58 126 75 175 63 188 61 138 61 1575 0 1147 -2 1318 -16 1391 -99 521 -496 914 -1018 1004 -70 12 -178 15 -526 15 -240 0 -440 -3 -443 -7z m1068 -2178 c156 -41 284 -160 336 -312 33 -94 32 -232 -1 -318 -61 -158 -181 -269 -335 -310 -250 -65 -516 86 -589 334 -22 76 -21 204 4 282 75 245 335 389 585 324z"
+              />
+            </g>
+          </svg>
+        </div>
+        <h1 class="left-title">Freefoil</h1>
       </div>
-    </div>
-    <h3>Generates a Google oauth token file for Tinfoil on the Switch</h3>
+      <h2 class="left-subtitle">
+        This an online tool that generates a Google 0auth Token file for Tinfoil on the Switch.
+      </h2>
 
-    <h3>Step 1</h3>
-    <div class="content">
-      <p>Load your credentials.json file:</p>
-      <input type="file" id="file-selector" accept=".json" />
-
-      <div>
-        <label for="clientID">Client ID</label>
-        <input type="text" id="clientID" placeholder="Client ID" readonly />
-        <label for="clientID">Client Secret</label>
-        <input
-          type="text"
-          id="clientSecret"
-          placeholder="Client Secret"
-          readonly
-        />
-        <label for="appType"
-          >App type
-          <span
-            class="app-info"
-            data-text="App type defined when creating oauth credentials. It should be Desktop or Web, though Web is preferred. To make a web app, when creating OAuth client ID, choose Web Application instead of desktop app. Add https://sphynxinatorx.github.io/freefoil/ and http://localhost as authorized redirect URIs.  Create, download the JSON file and use here."
-            >ⓘ</span
-          ></label
-        >
-        <input type="text" id="appType" placeholder="App type" readonly />
+      <div class="text-1">
+        This process works for Windows / iOS / Linux users.  
       </div>
+
+      <div style="align-items: center; margin-top: 1rem; display: flex; padding: 12px 20px; background: #FF6058; border-radius: 8px;">
+          <span style="margin-right:1rem; height: 24px;"><img src="assets/alert-circle.svg" width="24" height="24" alt=""></span>
+          <div style="color: white;">You must have your credentials.json file.</div>
+      </div>
+
+      <div class="text-2">
+        How to get a credential.json file?
+      </div>
+
+      <div class="text-3">
+        First, setup OAuth for GDrive & Tinfoil.<br> <a style="color: white;" href="https://tinfoil.shop/setup/oauth/">https://tinfoil.shop/setup/oauth/</a> <br><br>Then, submit an Application<br><a style="display: none; color: white;" href="https://forms.gle/jMiGzEUKh4qXPCHR8">https://forms.gle/jMiGzEUKh4qXPCHR8</a> <br><span style="font-size: 14px;">*Only @gmail.com works</span><br>
+      </div>
+
+
+      <img class="borb-img1" style="" src="assets/borb1.png" alt="">
+      <img class="borb-img2" style="" src="assets/borb2.png" alt="">
+      <img class="borb-img3" style="" src="assets/borb3.png" alt="">
+      <img class="borb-img4" style="" src="assets/borb4.png" alt="">
+
+      <style>
+
+        .borb-img1 {
+          width: 70%;
+          position: absolute;
+          top: 30%;
+          left: -14%;
+          clip-path: inset(0 0 0 20%);
+        }
+        .borb-img2 {
+          width: 49%;
+          position: absolute;
+          top: 52%;
+          right: -7.5%;
+          -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+          clip-path: inset(0 0 0 15%);
+        }
+        .borb-img3 {
+          width: 67%;
+          position: absolute;
+          top: 69%;
+          left: -16%;
+          -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+          clip-path: inset(0 24% 0 0 );
+        }
+        .borb-img4 {
+          width: 60%;
+          position: absolute;
+          top: 83%;
+          left: 21%;
+        }
+      </style>
+
+
+      <br /><br />
+      <span style="
+        color: white;
+        position: absolute;
+        bottom: 3rem;
+        width: 100%;
+        left: 0;
+        text-align: center;
+      ">
+      <a href="https://github.com/SphynxinatorX/freefoil" style="
+        color: white;">Source code</a>
+          by Sphynxintor. Designed by Ultimatum.
+        </span>
     </div>
 
-    <h3>Step 2</h3>
-    <div class="content">
-      <p>
-        Make sure you are logged into the Google account that you want to auth
-        with. <br />
-        Click the button below. This will open a Google Oauth popup window.
-        <br />
-        Follow the steps and authorize the app. <br />
-      </p>
-      <button id="openAuth" disabled>Authorize</button>
-      <div id="copyStep">
+    <div class="right-panel">
+      <h1 class="title">Generate your Token!</h1>
+      <h2 class="subtitle">Follow the steps to below.</h3>
+
+      <h3 style="margin-top: 3rem;">Step 1</h3>
+      <div class="content">
         <p>
-          Once it has completed (the popup page should fail saying it can't be
-          reached or connection refused), copy the entire popup URL into the
-          field below. This should be automatic if using the web app type.
+          First of all, you will need to upload your credentials.json file.<br>
+          Simply click the <span style="color: #5887FF; font-weight: 700;">“Choose File”</span> button and search for the file on your
+          computer.
         </p>
-        <input
-          id="authURL"
-          placeholder="http://localhost:8080/?state=pass..."
-        />
-        <p class="authURLValid"></p>
-      </div>
-    </div>
 
-    <div id="generateStep">
+        <div class="dl-button">
+          
+          <label for="file-selector" class="custom-file-upload button">
+            <span style="height: 24px;"><img src="assets/upload.svg" width="24" height="24" alt=""></span>
+            <span>Choose file</span>
+          </label>
+          <input
+            type="file"
+            id="file-selector"
+            accept=".json"
+            style="display: none"
+          />
+        </div>
+        <p>
+          *Once you load your file these fields will autofill to be sure you
+          upload everything correctly.
+        </p>
+
+        <div>
+          <label for="clientID">Client ID:</label>
+          <input style="margin: 8px 0;" type="text" id="clientID" placeholder="Client ID" readonly />
+          <label for="clientID">Client Secret:</label>
+          <input style="margin: 8px 0;"
+            type="text"
+            id="clientSecret"
+            placeholder="Client Secret"
+            readonly
+          />
+          <label for="appType"
+          style="justify-content: space-between;
+          display: flex;
+          width: 100%;"
+            >
+            <span>App type:</span>
+            <span
+              class="app-info"
+              data-text="App type defined when creating oauth credentials. It should be Desktop or Web, though Web is preferred. To make a web app, when creating OAuth client ID, choose Web Application instead of desktop app. Add https://sphynxinatorx.github.io/freefoil/ and http://localhost as authorized redirect URIs.  Create, download the JSON file and use here."
+              >
+              <span style="
+              height: 24px;
+              display: block;
+          "><img src="assets/info.svg" width="24" height="24" alt=""></span>
+              </span
+            ></label
+          >
+          <input style="margin: 8px 0;" type="text" id="appType" placeholder="App type" readonly />
+        </div>
+      </div>
+
+      <h3>Step 2</h3>
+      <div style="align-items: center; margin-top: 1rem; display: flex; padding: 12px 20px; background: #FF6058; border-radius: 8px;">
+        <span style="margin-right:1rem; height: 24px;"><img src="assets/alert-circle.svg" width="24" height="24" alt=""></span>
+        <div style="color: white;">Make sure you are logged into the Google account that you want to auth with.</div>
+      </div>
+      <div class="content">
+        <p>
+          Click the <span style="color: #5887FF; font-weight: 700;">“Authorize”</span> button below. This will open a Google Oauth
+          popup window. Follow the steps and authorize the app. At the end of
+          this step you will get an error loading page <span style="font-weight: 700; text-decoration: underline;">“This site can't be
+          reached”</span>  this is totally normal. Follow next step
+        </p>
+        <button id="openAuth" disabled>
+          <span><img src="assets/check-circle.svg" width="24" height="24" alt=""></span>
+          <span>Authorize</span>
+        </button>
+      </div>
+
       <h3>Step 3</h3>
       <div class="content">
         <p>
-          This will download a gdrive.token file. This file, along with
-          credentials.json should go to your SDCARD\switch\tinfoil folder.<br />
-          Mobile browsers might append .txt to the token file download, this
-          will need to be removed.
+          Copy the entire <span style="color: #5887FF; font-weight: 700;">URL</span> and paste it into the field below. <br> This is
+          automatic if using the web app type.
         </p>
-        <button id="generateToken" disabled>Generate Token</button>
+        <img style="max-width: 100%;" src="assets/help2.jpg"/>
+        <div id="copyStep" style="position: relative;">
+          <p>
+            Paste your URL here:
+          </p>
+          <input
+            id="authURL"
+            placeholder="http://localhost:8080/?state=pass..."
+          />
+          <div style="display: flex; color: #3EAF3F ;position: absolute;top: 0;right: 0;">
+            <span class="valid-container" style="display:none; margin-right: 0.3rem;"><img src="assets/check-circle-valid.svg" width="24" height="24" alt=""></span>
+            <p class="authURLValid"></p>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <br /><br />
-    <p>By Sphynxintor</p>
-    <a href="https://github.com/SphynxinatorX/freefoil">Source code</a>
+      <div id="generateStep">
+        <h3>Step 4</h3>
+        <div class="content">
+          <p>
+            Click <span style="color: #5887FF; font-weight: 700;">“Download Token”</span> button to successfully download your token.
+          </p>
+          <button id="generateToken" disabled>
+            <span><img src="assets/download.svg" width="24" height="24" alt=""></span>
+            <span>Generate Token</span>
+          </button>
+        </div>
+      </div>
+
+      <h3>Step 5</h3>
+      <div class="content">
+        <p>
+          Copy this token along with credentials.json and paste inside: <span style="color: #5887FF; font-weight: 700;">SDCARD/switch/tinfoil</span> folder. Mobile browsers might append .txt to the token file download, remove this file.
+        </p>
+        <img style="max-width: 100%;" src="assets/help1.jpg"/>
+      </div>
+
+      <h3>Step 6</h3>
+      <div class="content">
+        <p>Open Tinfoil and add the shop information.</p>
+      </div>
+
+
+      <div style="align-items: center; margin-top: 1rem; display: flex; padding: 12px 20px; background: #FF6058; border-radius: 8px;">
+        <span style="margin-right:1rem; height: 24px;"><img src="assets/alert-circle.svg" width="24" height="24" alt=""></span>
+        <div style="color: white;">If you any trouble following the guide, first visit #FAQ in discord server.</div>
+      </div>
+
+
+    </div>
   </body>
 </html>
-
-<style>
-  input {
-    min-width: 90%;
-  }
-  .svg {
-    width: 50px;
-    padding-left: 1rem;
-    margin-top: 1rem;
-  }
-  .title-container {
-    display: flex;
-    align-items: center;
-  }
-  .authURLValid {
-    margin: 0;
-  }
-  .content {
-    padding-left: 1rem;
-  }
-  .app-info {
-    position: relative;
-    border-bottom: 1px dashed #000;
-  }
-  .app-info:before {
-    content: attr(data-text);
-    position: absolute;
-    top: 50%;
-    transform: translate(-30%, 5%);
-    left: 100%;
-    margin-left: 15px;
-    width: 350px;
-    padding: 10px;
-    border-radius: 10px;
-    background: #000;
-    color: #fff;
-    text-align: center;
-    display: none;
-  }
-  .app-info:hover:before {
-    display: block;
-  }
-</style>
