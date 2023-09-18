@@ -217,4 +217,8 @@ h3 {
   .right-panel {
     width: unset !important;
   }
+  .left-panel,
+  .right-panel {
+    padding: 40px 40px;
+  }
 }
