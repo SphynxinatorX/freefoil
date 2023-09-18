@@ -198,3 +198,20 @@ h3 {
   line-height: 32px;
   letter-spacing: 0.171px;
 }
+
+@media only screen and (max-width: 800px) {
+  body {
+    display: block !important;
+  }
+
+  .left-panel img {
+    display: none !important;
+  }
+
+  .left-panel {
+    width: unset !important;
+  }
+  .right-panel {
+    width: unset !important;
+  }
+}
